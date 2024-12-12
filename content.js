@@ -1,4 +1,8 @@
+let alertsShown = false;
+
 const checkNoIndex = () => {
+  if (alertsShown) return; 
+
   const bodyText = document.body.innerText || document.body.textContent;
 
   const keywords = ["noIndex", "noindex"];
@@ -6,7 +10,11 @@ const checkNoIndex = () => {
   const found = keywords.some((keyword) => bodyText.toLowerCase().includes(keyword.toLowerCase()));
 
   if (found) {
-    alert("A palavra 'noIndex' ou 'noindex' foi detectada nesta página!");
+    alert("A palavra 'noIndex' foi detectada nesta página!");
+
+    alert("Não se esqueça de remover o 'noindex' posteriormente!");
+
+    alertsShown = true;
   }
 };
 
@@ -15,5 +23,3 @@ const observer = new MutationObserver(() => {
 });
 
 observer.observe(document.body, { childList: true, subtree: true });
-
-checkNoIndex();
