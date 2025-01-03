@@ -1,16 +1,21 @@
 {
-  "manifest_version": 3,
-  "name": "NoIndex Detector",
-  "version": "1.0",
-  "description": "Detecta 'noIndex' e 'noindex' em páginas específicas.",
-  "permissions": ["activeTab"],
-  "icons": {
+    "manifest_version": 3,
+    "name": "NoIndex Detector",
+    "version": "1.1",
+    "description": "Detecta 'noIndex' e meta tags 'noindex' em páginas web.",
+    "permissions": ["activeTab"],
+    "icons": {
       "48": "icon.png"
-  },
-  "content_scripts": [
+    },
+    "content_scripts": [
       {
-          "matches": ["https://bitbucket.org/*"],
-          "js": ["content.js"]
+        "matches": [
+            "https://melhorplano.net/*",
+            "https://www.idinheiro.com.br/*",
+            "https://bitbucket.org/*/pull-requests/*"
+          ],
+        "js": ["content.js"]
       }
-  ]
-}
+    ]
+  }
+  
